@@ -1,17 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "metaflac"
 version = "0.1.0"
-description = "Add your description here"
+requires-python = ">=3.13"
+description = "A FLAC metadata editor with UI written in Python."
 readme = "README.md"
+license = { file = "LICENSE" }
 authors = [
     { name = "RafaxWolf" }
 ]
-requires-python = ">=3.13"
 dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=7.0",
+    "ruff>=0.14",
+    "pillow>=10.0",
+]
 
 [project.scripts]
 metaflac = "metaflac:main"
 
-[build-system]
-requires = ["uv_build>=0.12.23,<0.13.0"]
-build-backend = "uv_build"
+[tool.pytest.ini_options]
+addopts = "--cov=metaflac"
+pythonpath = ["src"]
+testpaths = ["tests"]

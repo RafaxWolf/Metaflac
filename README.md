@@ -22,6 +22,14 @@ installed and run as a simple command‑line tool.
 uv add metaflac
 ```
 
+### Build from Source
+
+```bash
+uv build -o build/
+```
+
+This will Build the Source Code into the `Build/` Folder
+
 ### Run
 
 ```bash
@@ -30,6 +38,17 @@ metaflac
 
 This will launch the GUI.  The command is also exposed as a console script
 via UV so it can be called from any shell.
+
+### Debug
+The project uses `ruff` for linting and `pytest` for tests.
+
+Test the code and it's quality with:
+
+```bash
+uv run --group dev pytest
+uv run --group dev ruff check .
+uv run --group dev ruff format --check .
+```
 
 ## Project Structure
 
@@ -42,8 +61,7 @@ pyproject.toml      # UV build configuration
 
 ## Contributing
 
-Feel free to open issues or pull requests.  The project uses `ruff` for linting and
-`pytest` for tests.
+Feel free to open issues or pull requests.  
 
 ---
 © 2026 RafaxWolf
